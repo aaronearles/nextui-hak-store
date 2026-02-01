@@ -492,6 +492,14 @@
         "System",
         "File Management"
       ]
+    },
+    {
+      "id": "9iPetKy60R",
+      "storefront_name": "RetroSend",
+      "repo_url": "https://github.com/BrandonKowalski/retrosend",
+      "categories": [
+        "File Management"
+      ]
     }
   ]
 }

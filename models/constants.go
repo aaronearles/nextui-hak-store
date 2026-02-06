@@ -20,3 +20,4 @@ type Platform string
 
 const TG5040 Platform = "tg5040"
 const TG5050 Platform = "tg5050"
+const MY355 Platform = "my355"

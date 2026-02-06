@@ -40,8 +40,10 @@ tasks:
       - rm -rf "build/Tools" || true
       - mkdir -p "build/Tools/tg5040"
       - mkdir -p "build/Tools/tg5050"
+      - mkdir -p "build/Tools/my355"
       - cp -R "build/Pak Store.pak" "build/Tools/tg5040"
       - cp -R "build/Pak Store.pak" "build/Tools/tg5050"
+      - cp -R "build/Pak Store.pak" "build/Tools/my355"
     silent: true
 
   package-pakz:

@@ -516,6 +516,14 @@
       "categories": [
         "Media"
       ]
+    },
+    {
+      "id": "IPB6VN1KNV",
+      "storefront_name": "Video Player",
+      "repo_url": "https://github.com/mohammadsyuhada/nextui-video-player",
+      "categories": [
+        "Media"
+      ]
     }
   ]
 }

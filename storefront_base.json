@@ -524,6 +524,14 @@
       "categories": [
         "Media"
       ]
+    },
+    {
+      "id": "extRHlAv2X",
+      "storefront_name": "Toggle Native SSH",
+      "repo_url": "https://github.com/Helaas/nextui-nativessh-pak",
+      "categories": [
+        "File Management"
+      ]
     }
   ]
 }

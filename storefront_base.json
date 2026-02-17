@@ -532,6 +532,14 @@
       "categories": [
         "File Management"
       ]
+    },
+    {
+      "id": "vf6c1JmurX",
+      "storefront_name": "Shortcuts",
+      "repo_url": "https://github.com/Helaas/nextui-shortcuts-pak",
+      "categories": [
+        "Customization"
+      ]
     }
   ]
 }

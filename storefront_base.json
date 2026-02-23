@@ -540,6 +540,14 @@
       "categories": [
         "Customization"
       ]
+    },
+    {
+      "id": "MS6nE23a90",
+      "storefront_name": "RPG Maker 2000/2003",
+      "repo_url": "https://github.com/KrutzOtrem/nextui-easyrpg",
+      "categories": [
+        "Emulators"
+      ]
     }
   ]
 }

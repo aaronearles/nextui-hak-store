@@ -548,6 +548,15 @@
       "categories": [
         "Emulators"
       ]
+    },
+    {
+      "id": "85lpt3IHiy",
+      "storefront_name": "ScrapeGoat",
+      "repo_url": "https://github.com/Helaas/nextui-scrapegoat-pak",
+      "categories": [
+        "ROM Management",
+        "Media"
+      ]
     }
   ]
 }

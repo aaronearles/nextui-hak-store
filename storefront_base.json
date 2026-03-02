@@ -510,14 +510,6 @@
       ]
     },
     {
-      "id": "LmdIH940Bj",
-      "storefront_name": "YouTube",
-      "repo_url": "https://github.com/irvanvir12/TrimUI-Brick-Youtube",
-      "categories": [
-        "Media"
-      ]
-    },
-    {
       "id": "IPB6VN1KNV",
       "storefront_name": "Video Player",
       "repo_url": "https://github.com/mohammadsyuhada/nextui-video-player",

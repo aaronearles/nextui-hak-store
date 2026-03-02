@@ -23,7 +23,7 @@ tasks:
       - mkdir -p build/lib
       - mkdir -p build/bin
       - mkdir -p build/licenses
-      - docker buildx build --platform=linux/arm64 -t retro-console-arm64 -f Dockerfile --build-arg VERSION={{.VERSION}} --build-arg GIT_COMMIT={{.GIT_COMMIT}} --build-arg BUILD_DATE={{.BUILD_DATE}} .
+      - docker buildx build --platform=linux/arm64 --load -t retro-console-arm64 -f Dockerfile --build-arg VERSION={{.VERSION}} --build-arg GIT_COMMIT={{.GIT_COMMIT}} --build-arg BUILD_DATE={{.BUILD_DATE}} .
     silent: true
 
   package:
@@ -40,8 +40,10 @@ tasks:
       - rm -rf "build/Tools" || true
       - mkdir -p "build/Tools/tg5040"
       - mkdir -p "build/Tools/tg5050"
+      - mkdir -p "build/Tools/my355"
       - cp -R "build/Pak Store.pak" "build/Tools/tg5040"
       - cp -R "build/Pak Store.pak" "build/Tools/tg5050"
+      - cp -R "build/Pak Store.pak" "build/Tools/my355"
     silent: true
 
   package-pakz:

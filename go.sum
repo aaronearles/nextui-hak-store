@@ -8,6 +8,8 @@ github.com/BrandonKowalski/gabagool/v2 v2.8.0 h1:AiDAFM5MqMInVslp70wiUJzDMyUagsW
 github.com/BrandonKowalski/gabagool/v2 v2.8.0/go.mod h1:Iq/YFTz7+w8O78IE21kOkHbg3a4ZD2mjcd0S/jVhI94=
 github.com/BrandonKowalski/gabagool/v2 v2.8.1 h1:Y6iHBg3q5x8ulMbDae0mcwo0LnST3AvhGnl5bU24W3s=
 github.com/BrandonKowalski/gabagool/v2 v2.8.1/go.mod h1:Iq/YFTz7+w8O78IE21kOkHbg3a4ZD2mjcd0S/jVhI94=
+github.com/BrandonKowalski/gabagool/v2 v2.9.6 h1:6+5Aio2TvMxAfm9uXkDYsGpmMg3KF2V+UjqNG2nhZ8Y=
+github.com/BrandonKowalski/gabagool/v2 v2.9.6/go.mod h1:Iq/YFTz7+w8O78IE21kOkHbg3a4ZD2mjcd0S/jVhI94=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dustin/go-humanize v1.0.1 h1:GzkhY7T5VNhEkwH0PVJgjz+fX1rhBrR7pRT3mDkpeCY=
@@ -69,8 +71,6 @@ modernc.org/gc/v3 v3.1.1 h1:k8T3gkXWY9sEiytKhcgyiZ2L0DTyCQ/nvX+LoCljoRE=
 modernc.org/gc/v3 v3.1.1/go.mod h1:HFK/6AGESC7Ex+EZJhJ2Gni6cTaYpSMmU/cT9RmlfYY=
 modernc.org/goabi0 v0.2.0 h1:HvEowk7LxcPd0eq6mVOAEMai46V+i7Jrj13t4AzuNks=
 modernc.org/goabi0 v0.2.0/go.mod h1:CEFRnnJhKvWT1c1JTI3Avm+tgOWbkOu5oPA8eH8LnMI=
-modernc.org/libc v1.67.6 h1:eVOQvpModVLKOdT+LvBPjdQqfrZq+pC39BygcT+E7OI=
-modernc.org/libc v1.67.6/go.mod h1:JAhxUVlolfYDErnwiqaLvUqc8nfb2r6S6slAgZOnaiE=
 modernc.org/libc v1.67.7 h1:H+gYQw2PyidyxwxQsGTwQw6+6H+xUk+plvOKW7+d3TI=
 modernc.org/libc v1.67.7/go.mod h1:UjCSJFl2sYbJbReVQeVpq/MgzlbmDM4cRHIYFelnaDk=
 modernc.org/mathutil v1.7.1 h1:GCZVGXdaN8gTqB1Mf/usp1Y/hSqgI2vAGGP4jZMCxOU=

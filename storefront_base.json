@@ -549,6 +549,15 @@
         "ROM Management",
         "Media"
       ]
+    },
+    {
+      "id": "TWZc9jCf7o",
+      "storefront_name": "Dronage Terminal",
+      "repo_url": "https://github.com/boorch/dronage-terminal-pak",
+      "categories": [
+        "Miscellaneous Tools",
+        "Media"
+      ]
     }
   ]
 }

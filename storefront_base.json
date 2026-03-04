@@ -558,6 +558,14 @@
         "Miscellaneous Tools",
         "Media"
       ]
+    },
+    {
+      "id": "PatiFgxsej",
+      "storefront_name": "Paws, Productivity and Workflow System",
+      "repo_url": "https://github.com/KrutzOtrem/Paws",
+      "categories": [
+        "Miscellaneous Tools"
+      ]
     }
   ]
 }

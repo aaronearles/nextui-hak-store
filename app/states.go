@@ -80,7 +80,8 @@ func buildRouter(storefront models.Storefront) *router.Router {
 	r.Register(screenMainMenu, func(input any) (any, error) {
 		screen := ui.NewMainMenuScreen()
 		result, err := screen.Draw(ui.MainMenuInput{
-			Storefront: storefront,
+			Storefront:       storefront,
+			ExperimentalMode: experimentalUnlocked,
 		})
 		if err != nil {
 			return result, err
@@ -99,6 +100,7 @@ func buildRouter(storefront models.Storefront) *router.Router {
 		screen := ui.NewBrowseScreen()
 		result, err := screen.Draw(ui.BrowseInput{
 			Storefront:           in.Storefront,
+			ExperimentalMode:     experimentalUnlocked,
 			LastSelectedIndex:    lastIdx,
 			LastSelectedPosition: lastPos,
 		})
@@ -119,6 +121,7 @@ func buildRouter(storefront models.Storefront) *router.Router {
 		screen := ui.NewPakListScreen()
 		result, err := screen.Draw(ui.PakListInput{
 			Storefront:           in.Storefront,
+			ExperimentalMode:     experimentalUnlocked,
 			Category:             in.Category,
 			LastSelectedIndex:    lastIdx,
 			LastSelectedPosition: lastPos,
@@ -164,6 +167,7 @@ func buildRouter(storefront models.Storefront) *router.Router {
 		screen := ui.NewUpdatesScreen()
 		result, err := screen.Draw(ui.UpdatesInput{
 			Storefront:           in.Storefront,
+			ExperimentalMode:     experimentalUnlocked,
 			LastSelectedIndex:    lastIdx,
 			LastSelectedPosition: lastPos,
 		})

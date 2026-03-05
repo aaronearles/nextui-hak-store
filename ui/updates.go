@@ -12,6 +12,7 @@ import (
 
 type UpdatesInput struct {
 	Storefront           models.Storefront
+	ExperimentalMode     bool
 	LastSelectedIndex    int
 	LastSelectedPosition int
 }
@@ -34,7 +35,7 @@ func (s *UpdatesScreen) Draw(input UpdatesInput) (ScreenResult[UpdatesOutput], e
 		LastSelectedPosition: input.LastSelectedPosition,
 	}
 
-	updatesAvailable := state.GetUpdatesAvailable(input.Storefront)
+	updatesAvailable := state.GetUpdatesAvailable(input.Storefront, input.ExperimentalMode)
 
 	if len(updatesAvailable) == 0 {
 		return back(output), nil

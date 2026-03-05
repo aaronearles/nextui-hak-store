@@ -51,13 +51,17 @@ type PakWithStatus struct {
 	HasUpdate   bool
 }
 
-func GetBrowsePaks(storefront models.Storefront, installedPaks map[string]database.InstalledPak) map[string]map[string]PakWithStatus {
+func GetBrowsePaks(storefront models.Storefront, installedPaks map[string]database.InstalledPak, experimentalMode bool) map[string]map[string]PakWithStatus {
 	browsePaks := make(map[string]map[string]PakWithStatus)
 	currentPlatform := utils.GetPlatform()
 	config := internal.GetConfig()
 
 	for _, p := range storefront.Paks {
 		if p.Disabled {
+			continue
+		}
+
+		if p.Experimental && !experimentalMode {
 			continue
 		}
 
@@ -77,7 +81,12 @@ func GetBrowsePaks(storefront models.Storefront, installedPaks map[string]databa
 			HasUpdate:   hasUpdate,
 		}
 
-		for _, cat := range p.Categories {
+		categories := p.Categories
+		if p.Experimental {
+			categories = []string{"Experimental"}
+		}
+
+		for _, cat := range categories {
 			if _, ok := browsePaks[cat]; !ok {
 				browsePaks[cat] = make(map[string]PakWithStatus)
 			}
@@ -104,7 +113,7 @@ func findInstalledPak(pak models.Pak, installedPaks map[string]database.Installe
 	return database.InstalledPak{}, false
 }
 
-func GetUpdatesAvailable(storefront models.Storefront) []models.Pak {
+func GetUpdatesAvailable(storefront models.Storefront, experimentalMode bool) []models.Pak {
 	var updates []models.Pak
 	currentPlatform := utils.GetPlatform()
 	config := internal.GetConfig()
@@ -115,6 +124,10 @@ func GetUpdatesAvailable(storefront models.Storefront) []models.Pak {
 	}
 
 	for _, p := range storefront.Paks {
+		if p.Experimental && !experimentalMode {
+			continue
+		}
+
 		if config.PlatformFilter == internal.PlatformFilterMatchDevice && !supportsCurrentPlatform(p, currentPlatform) {
 			continue
 		}

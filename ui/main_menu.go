@@ -11,7 +11,8 @@ import (
 )
 
 type MainMenuInput struct {
-	Storefront models.Storefront
+	Storefront       models.Storefront
+	ExperimentalMode bool
 }
 
 type MainMenuOutput struct {
@@ -32,8 +33,8 @@ func (s *MainMenuScreen) Draw(input MainMenuInput) (ScreenResult[MainMenuOutput]
 		return withAction(output, ActionError), err
 	}
 
-	browsePaks := state.GetBrowsePaks(input.Storefront, installedPaks)
-	updatesAvailable := state.GetUpdatesAvailable(input.Storefront)
+	browsePaks := state.GetBrowsePaks(input.Storefront, installedPaks, input.ExperimentalMode)
+	updatesAvailable := state.GetUpdatesAvailable(input.Storefront, input.ExperimentalMode)
 
 	title := "Pak Store"
 

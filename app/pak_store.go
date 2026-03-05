@@ -8,6 +8,7 @@ import (
 
 	_ "github.com/BrandonKowalski/certifiable"
 	gaba "github.com/BrandonKowalski/gabagool/v2/pkg/gabagool"
+	"github.com/BrandonKowalski/gabagool/v2/pkg/gabagool/constants"
 	"github.com/LoveRetro/nextui-pak-store/database"
 	"github.com/LoveRetro/nextui-pak-store/models"
 	"github.com/LoveRetro/nextui-pak-store/state"
@@ -16,6 +17,7 @@ import (
 )
 
 var storefront models.Storefront
+var experimentalUnlocked bool
 
 func init() {
 	logPath := filepath.Join(utils.GetLogsDir(), "pak_store.log")
@@ -28,11 +30,32 @@ func init() {
 
 	gaba.SetLogLevel(slog.LevelDebug)
 
+	gaba.RegisterChord("experimental", []constants.VirtualButton{
+		constants.VirtualButtonL1,
+		constants.VirtualButtonR1,
+		constants.VirtualButtonStart,
+	}, gaba.ChordOptions{
+		OnTrigger: func() {
+			experimentalUnlocked = true
+		},
+	})
+
 	sf, err := gaba.ProcessMessage("",
 		gaba.ProcessMessageOptions{Image: "resources/splash.png", ImageWidth: 1024, ImageHeight: 768}, func() (models.Storefront, error) {
-			time.Sleep(1250 * time.Millisecond)
+			time.Sleep(3 * time.Second)
 			return utils.FetchStorefront()
 		})
+
+	if experimentalUnlocked {
+		gaba.ProcessMessage("", gaba.ProcessMessageOptions{
+			Image:       "resources/jankstore.png",
+			ImageWidth:  1024,
+			ImageHeight: 768,
+		}, func() (any, error) {
+			time.Sleep(2 * time.Second)
+			return nil, nil
+		})
+	}
 
 	if err != nil {
 		gaba.ConfirmationMessage("Could not load the Storefront!\nMake sure you are connected to Wi-Fi.\nIf this issue persists, check the logs.", []gaba.FooterHelpItem{

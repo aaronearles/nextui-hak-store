@@ -27,6 +27,7 @@ jobs:
             const displayNameMatch = issueBody.match(/### Display Name\s*\n\s*(.+)/);
             const repoUrlMatch = issueBody.match(/### GitHub Repository URL\s*\n\s*(.+)/);
             const categoriesMatch = issueBody.match(/### Categories\s*\n\s*([\s\S]*?)(?=\n### |$)/);
+            const experimentalMatch = issueBody.match(/### Experimental\s*\n\s*(.+)/);
 
             if (!displayNameMatch || !repoUrlMatch) {
               core.setFailed('Could not parse display name or repository URL from issue');
@@ -35,6 +36,7 @@ jobs:
 
             const displayName = displayNameMatch[1].trim();
             let repoUrl = repoUrlMatch[1].trim();
+            const isExperimental = experimentalMatch ? experimentalMatch[1].trim() === 'Yes' : false;
 
             // Normalize repo URL (remove trailing slash, .git)
             repoUrl = repoUrl.replace(/\.git$/, '').replace(/\/$/, '');
@@ -65,9 +67,11 @@ jobs:
             core.setOutput('categories', JSON.stringify(categories));
             core.setOutput('owner', owner);
             core.setOutput('repo', repo);
+            core.setOutput('experimental', isExperimental ? 'true' : 'false');
 
             console.log(`Parsed: ${displayName} from ${repoUrl}`);
             console.log(`Categories: ${categories.join(', ')}`);
+            console.log(`Experimental: ${isExperimental}`);
 
       - name: Fetch and Validate pak.json
         id: validate_pak
@@ -246,7 +250,8 @@ jobs:
 
             const storefrontBase = JSON.parse(fs.readFileSync('storefront_base.json', 'utf-8'));
 
-            const isDuplicate = storefrontBase.paks.some(pak =>
+            const allPaks = [...(storefrontBase.paks || []), ...(storefrontBase.experimental_paks || [])];
+            const isDuplicate = allPaks.some(pak =>
               pak.repo_url === repoUrl ||
               (pak.previous_repo_urls && pak.previous_repo_urls.includes(repoUrl))
             );
@@ -337,6 +342,7 @@ jobs:
           REPO_URL: ${{ steps.parse.outputs.repo_url }}
           PAK_ID: ${{ steps.generate_id.outputs.pak_id }}
           CATEGORIES: ${{ steps.suggest_categories.outputs.categories }}
+          EXPERIMENTAL: ${{ steps.parse.outputs.experimental }}
         with:
           script: |
             const fs = require('fs');
@@ -345,6 +351,7 @@ jobs:
             const repoUrl = process.env.REPO_URL;
             const pakId = process.env.PAK_ID;
             const categories = JSON.parse(process.env.CATEGORIES);
+            const isExperimental = process.env.EXPERIMENTAL === 'true';
 
             const storefront = JSON.parse(fs.readFileSync('storefront_base.json', 'utf-8'));
 
@@ -356,8 +363,15 @@ jobs:
               categories: categories
             };
 
-            // Add to paks array
-            storefront.paks.push(newPak);
+            // Add to the appropriate array
+            if (isExperimental) {
+              if (!storefront.experimental_paks) {
+                storefront.experimental_paks = [];
+              }
+              storefront.experimental_paks.push(newPak);
+            } else {
+              storefront.paks.push(newPak);
+            }
 
             // Write back with proper formatting
             fs.writeFileSync('storefront_base.json', JSON.stringify(storefront, null, 2) + '\n');
@@ -406,6 +420,7 @@ jobs:
           CATEGORIES: ${{ steps.suggest_categories.outputs.categories }}
           TYPE_WARNING: ${{ steps.infer_type.outputs.type_warning }}
           NEW_PAK_JSON: ${{ steps.update_storefront.outputs.new_pak_json }}
+          EXPERIMENTAL: ${{ steps.parse.outputs.experimental }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           github-token: ${{ secrets.GH_TOKEN }}
@@ -421,6 +436,7 @@ jobs:
             const categories = JSON.parse(process.env.CATEGORIES);
             const typeWarning = process.env.TYPE_WARNING;
             const newPakJson = process.env.NEW_PAK_JSON;
+            const isExperimental = process.env.EXPERIMENTAL === 'true';
             const issueNumber = context.payload.issue.number;
 
             let body = `## New Pak Submission
@@ -438,6 +454,7 @@ jobs:
             | Author | ${pakAuthor} |
             | Version | ${pakVersion} |
             | Categories | ${categories.join(', ')} |
+            | Experimental | ${isExperimental ? 'Yes' : 'No'} |
 
             ${pakDescription ? `**Description:** ${pakDescription}` : ''}
             `;

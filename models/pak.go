@@ -24,6 +24,7 @@ type Pak struct {
 	Categories       []string          `json:"categories"`
 	LargePak         bool              `json:"large_pak"`
 	Disabled         bool              `json:"disabled"`
+	Experimental     bool              `json:"experimental"`
 
 	IsPakZ       bool `json:"-"`
 	CanUninstall bool `json:"-"`

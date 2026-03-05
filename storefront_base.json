@@ -567,5 +567,16 @@
         "Miscellaneous Tools"
       ]
     }
+  ],
+  "experimental_paks": [
+    {
+      "id": "Z67hD2c222",
+      "storefront_name": "Netplay",
+      "repo_url": "https://github.com/mohammadsyuhada/nextui-netplay",
+      "categories": [
+        "System"
+      ],
+      "experimental": true
+    }
   ]
 }

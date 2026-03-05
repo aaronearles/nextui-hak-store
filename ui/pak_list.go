@@ -13,6 +13,7 @@ import (
 
 type PakListInput struct {
 	Storefront           models.Storefront
+	ExperimentalMode     bool
 	Category             string
 	LastSelectedIndex    int
 	LastSelectedPosition int
@@ -46,7 +47,7 @@ func (s *PakListScreen) Draw(input PakListInput) (ScreenResult[PakListOutput], e
 		return withAction(output, ActionError), err
 	}
 
-	browsePaks := state.GetBrowsePaks(input.Storefront, installedPaks)
+	browsePaks := state.GetBrowsePaks(input.Storefront, installedPaks, input.ExperimentalMode)
 
 	var menuItems []gaba.MenuItem
 	for _, pakStatus := range browsePaks[input.Category] {

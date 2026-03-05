@@ -51,6 +51,17 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: experimental
+    attributes:
+      label: Experimental
+      description: Mark this pak as experimental (it will only be visible to users who unlock the experimental category)
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
+
   - type: textarea
     id: additional_info
     attributes:

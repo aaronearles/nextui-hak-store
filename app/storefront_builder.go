@@ -65,55 +65,15 @@ func main() {
 	if err := json.Unmarshal(data, &sf); err != nil {
 		logFatal("Unable to unmarshal storefront: " + err.Error())
 	}
-	logSuccess(fmt.Sprintf("Found %d paks", len(sf.Paks)))
+	logSuccess(fmt.Sprintf("Found %d paks, %d experimental", len(sf.Paks), len(sf.ExperimentalPaks)))
 
 	logHeader("Fetching pak data from GitHub")
 
-	var paks []models.Pak
 	successCount := 0
 	skippedCount := 0
 
-	for _, p := range sf.Paks {
-		repoPath := strings.ReplaceAll(p.RepoURL, models.GitHubRoot, "")
-		parts := strings.Split(repoPath, "/")
-		if len(parts) < 2 {
-			logFatal("Invalid repository URL format: " + p.RepoURL)
-		}
-
-		owner := parts[0]
-		repo := parts[1]
-
-		apiURL := fmt.Sprintf("https://api.github.com/repos/%s/%s/contents/%s",
-			owner, repo, models.PakJsonStub)
-
-		pak := models.Pak{}
-
-		if p.Disabled {
-			logSkipped(p.StorefrontName + " | " + p.RepoURL)
-			skippedCount++
-		} else {
-			pak, err = fetchPakJsonFromGitHubAPI(apiURL)
-			if err != nil {
-				logError(fmt.Sprintf("%s | %s - %v", p.StorefrontName, p.RepoURL, err))
-				logFatal("Unable to fetch pak json for " + p.StorefrontName + " (" + p.RepoURL + ")")
-			}
-			logSuccess(p.StorefrontName + " | " + p.RepoURL)
-			successCount++
-		}
-
-		pak.ID = p.ID
-		pak.StorefrontName = p.StorefrontName
-		pak.PreviousNames = p.PreviousNames
-		pak.PreviousRepoURLs = p.PreviousRepoURLs
-		pak.RepoURL = p.RepoURL
-		pak.Categories = p.Categories
-		pak.LargePak = p.LargePak
-		pak.Disabled = p.Disabled
-
-		paks = append(paks, pak)
-	}
-
-	sf.Paks = paks
+	sf.Paks = fetchPakList(sf.Paks, &successCount, &skippedCount)
+	sf.ExperimentalPaks = fetchPakList(sf.ExperimentalPaks, &successCount, &skippedCount)
 
 	logHeader("Writing storefront.json")
 	jsonData, err := json.MarshalIndent(sf, "", "  ")
@@ -131,6 +91,53 @@ func main() {
 		fmt.Printf(", %d skipped", skippedCount)
 	}
 	fmt.Println()
+}
+
+func fetchPakList(basePaks []models.Pak, successCount, skippedCount *int) []models.Pak {
+	var paks []models.Pak
+
+	for _, p := range basePaks {
+		repoPath := strings.ReplaceAll(p.RepoURL, models.GitHubRoot, "")
+		parts := strings.Split(repoPath, "/")
+		if len(parts) < 2 {
+			logFatal("Invalid repository URL format: " + p.RepoURL)
+		}
+
+		owner := parts[0]
+		repo := parts[1]
+
+		apiURL := fmt.Sprintf("https://api.github.com/repos/%s/%s/contents/%s",
+			owner, repo, models.PakJsonStub)
+
+		pak := models.Pak{}
+
+		if p.Disabled {
+			logSkipped(p.StorefrontName + " | " + p.RepoURL)
+			*skippedCount++
+		} else {
+			var err error
+			pak, err = fetchPakJsonFromGitHubAPI(apiURL)
+			if err != nil {
+				logError(fmt.Sprintf("%s | %s - %v", p.StorefrontName, p.RepoURL, err))
+				logFatal("Unable to fetch pak json for " + p.StorefrontName + " (" + p.RepoURL + ")")
+			}
+			logSuccess(p.StorefrontName + " | " + p.RepoURL)
+			*successCount++
+		}
+
+		pak.ID = p.ID
+		pak.StorefrontName = p.StorefrontName
+		pak.PreviousNames = p.PreviousNames
+		pak.PreviousRepoURLs = p.PreviousRepoURLs
+		pak.RepoURL = p.RepoURL
+		pak.Categories = p.Categories
+		pak.LargePak = p.LargePak
+		pak.Disabled = p.Disabled
+
+		paks = append(paks, pak)
+	}
+
+	return paks
 }
 
 func fetchPakJsonFromGitHubAPI(apiURL string) (models.Pak, error) {

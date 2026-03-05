@@ -95,6 +95,12 @@ func FetchStorefront() (models.Storefront, error) {
 		return models.Storefront{}, err
 	}
 
+	for i := range sf.ExperimentalPaks {
+		sf.ExperimentalPaks[i].Experimental = true
+	}
+	sf.Paks = append(sf.Paks, sf.ExperimentalPaks...)
+	sf.ExperimentalPaks = nil
+
 	for i, p := range sf.Paks {
 		if filepath.Ext(p.ReleaseFilename) == ".pakz" {
 			sf.Paks[i].IsPakZ = true

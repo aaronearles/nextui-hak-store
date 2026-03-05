@@ -566,6 +566,14 @@
       "categories": [
         "Miscellaneous Tools"
       ]
+    },
+    {
+      "id": "rZCmsXQDOc",
+      "storefront_name": "TrimUI Music Player & Scrobbler",
+      "repo_url": "https://github.com/ExpandedPlum/trimui-brick-music-player-with-scrobbling-pak",
+      "categories": [
+        "Media"
+      ]
     }
   ],
   "experimental_paks": [

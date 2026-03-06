@@ -55,6 +55,10 @@ func init() {
 			time.Sleep(2 * time.Second)
 			return nil, nil
 		})
+
+		gaba.ConfirmationMessage("Experimental Paks Unlocked.\nUse at your own risk!\nMake sure you have backups!", []gaba.FooterHelpItem{
+			{ButtonName: "A", HelpText: "Continue"},
+		}, gaba.MessageOptions{})
 	}
 
 	if err != nil {

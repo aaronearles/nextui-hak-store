@@ -585,6 +585,14 @@
         "System"
       ],
       "experimental": true
+    },
+    {
+      "id": "77QFF0uYRu",
+      "storefront_name": "RPG Maker XP/VX/VX Ace (MKXPZ)",
+      "repo_url": "https://github.com/KrutzOtrem/nextui-mkxpz",
+      "categories": [
+        "Emulators"
+      ]
     }
   ]
 }

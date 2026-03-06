@@ -38,6 +38,6 @@
     "v3.0.2": "Automatically detect existing pak installs",
     "v3.1.0": "Fixed regression where Pak Store did not detect an update for itself. Super sorry!",
     "v3.1.1": "One last edge case with the new Pak ID system.",
-    "v4.0.0": "Experimental Paks are no available! Must use a shortcut on startup to access."
+    "v4.0.0": "Experimental Paks are now available! Must use a shortcut on startup to access."
   }
 }

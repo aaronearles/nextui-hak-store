@@ -574,6 +574,14 @@
       "categories": [
         "Media"
       ]
+    },
+    {
+      "id": "tjvKBDM77H",
+      "storefront_name": "Another Cheat Downloader",
+      "repo_url": "https://github.com/ExpandedPlum/another-nextui-cheat-downloader",
+      "categories": [
+        "ROM Management"
+      ]
     }
   ],
   "experimental_paks": [
@@ -585,6 +593,14 @@
         "System"
       ],
       "experimental": true
+    },
+    {
+      "id": "77QFF0uYRu",
+      "storefront_name": "RPG Maker XP/VX/VX Ace (MKXPZ)",
+      "repo_url": "https://github.com/KrutzOtrem/nextui-mkxpz",
+      "categories": [
+        "Emulators"
+      ]
     }
   ]
 }

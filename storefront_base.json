@@ -582,6 +582,14 @@
       "categories": [
         "ROM Management"
       ]
+    },
+    {
+      "id": "EDkODyX2KO",
+      "storefront_name": "Cheat Downloader Offline",
+      "repo_url": "https://github.com/nborodikhin/nextui-cheat-downloader-alt",
+      "categories": [
+        "ROM Management"
+      ]
     }
   ],
   "experimental_paks": [

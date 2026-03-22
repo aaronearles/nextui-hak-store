@@ -590,6 +590,14 @@
       "categories": [
         "ROM Management"
       ]
+    },
+    {
+      "id": "bGeMnFrpN6",
+      "storefront_name": "Sega Saturn (YabaSanshiro)",
+      "repo_url": "https://github.com/SouthwestDivineFist/SS-pak",
+      "categories": [
+        "Emulators"
+      ]
     }
   ],
   "experimental_paks": [

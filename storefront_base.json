@@ -630,6 +630,14 @@
       "categories": [
         "Miscellaneous Tools"
       ]
+    },
+    {
+      "id": "yfEKfG0W1a",
+      "storefront_name": "RetroRead",
+      "repo_url": "https://github.com/expkzb/RetroRead-Pak",
+      "categories": [
+        "Media"
+      ]
     }
   ],
   "experimental_paks": [

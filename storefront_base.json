@@ -638,6 +638,15 @@
       "categories": [
         "Media"
       ]
+    },
+    {
+      "id": "DyC1zZW0El",
+      "storefront_name": "Grampus",
+      "repo_url": "https://github.com/boorch/grampus-pak",
+      "categories": [
+        "Miscellaneous Tools",
+        "Media"
+      ]
     }
   ],
   "experimental_paks": [

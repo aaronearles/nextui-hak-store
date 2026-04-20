@@ -663,6 +663,16 @@
       "categories": [
         "Ports"
       ]
+    },
+    {
+      "id": "LenGAzYdOL",
+      "storefront_name": "Central Scrutinizer",
+      "repo_url": "https://github.com/Helaas/nextui-CentralScrutinizer-pak",
+      "categories": [
+        "ROM Management",
+        "File Management",
+        "Miscellaneous Tools"
+      ]
     }
   ],
   "experimental_paks": [

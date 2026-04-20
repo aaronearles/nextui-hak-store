@@ -647,6 +647,14 @@
         "Miscellaneous Tools",
         "Media"
       ]
+    },
+    {
+      "id": "3JM2zY4UKh",
+      "storefront_name": "Itch.io Store",
+      "repo_url": "https://github.com/carroarmato0/NextUI-Itchio-Pak",
+      "categories": [
+        "ROM Management"
+      ]
     }
   ],
   "experimental_paks": [

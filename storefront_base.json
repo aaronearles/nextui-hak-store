@@ -515,7 +515,8 @@
       "repo_url": "https://github.com/mohammadsyuhada/nextui-video-player",
       "categories": [
         "Media"
-      ]
+      ],
+      "disabled": true
     },
     {
       "id": "extRHlAv2X",

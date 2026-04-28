@@ -674,6 +674,14 @@
         "File Management",
         "Miscellaneous Tools"
       ]
+    },
+    {
+      "id": "wyZHFVcCzy",
+      "storefront_name": "Joe's Calibrage",
+      "repo_url": "https://github.com/Helaas/nextui-Joe-s-Calibrage-pak",
+      "categories": [
+        "System"
+      ]
     }
   ],
   "experimental_paks": [

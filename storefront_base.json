@@ -690,6 +690,14 @@
       "categories": [
         "Media"
       ]
+    },
+    {
+      "id": "BEgjD8r76k",
+      "storefront_name": "Nimbus",
+      "repo_url": "https://github.com/ericreinsmidt/nextui-nimbus",
+      "categories": [
+        "Miscellaneous Tools"
+      ]
     }
   ],
   "experimental_paks": [

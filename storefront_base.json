@@ -698,6 +698,14 @@
       "categories": [
         "Miscellaneous Tools"
       ]
+    },
+    {
+      "id": "TxM1OmN9am",
+      "storefront_name": "PlexMusic",
+      "repo_url": "https://github.com/thwonp/PlexMusicPak",
+      "categories": [
+        "Media"
+      ]
     }
   ],
   "experimental_paks": [

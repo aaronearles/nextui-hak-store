@@ -706,6 +706,14 @@
       "categories": [
         "Media"
       ]
+    },
+    {
+      "id": "zZdmZSHL8L",
+      "storefront_name": "LED'oh!",
+      "repo_url": "https://github.com/ericreinsmidt/nextui-ledoh",
+      "categories": [
+        "Customization"
+      ]
     }
   ],
   "experimental_paks": [

@@ -714,6 +714,14 @@
       "categories": [
         "Customization"
       ]
+    },
+    {
+      "id": "3aNJrBZdif",
+      "storefront_name": "Overlays",
+      "repo_url": "https://github.com/zolek86/NextUI-Overlays",
+      "categories": [
+        "Miscellaneous Tools"
+      ]
     }
   ],
   "experimental_paks": [

@@ -749,6 +749,14 @@
       "categories": [
         "Emulators"
       ]
+    },
+    {
+      "id": "rgQk9umplH",
+      "storefront_name": "Shader Installer",
+      "repo_url": "https://github.com/SkyWalker541/NextUI-Shader-Installer-Pak",
+      "categories": [
+        "Miscellaneous Tools"
+      ]
     }
   ]
 }

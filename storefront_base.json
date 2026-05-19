@@ -738,6 +738,14 @@
       "categories": [
         "Miscellaneous Tools"
       ]
+    },
+    {
+      "id": "llD8Yvx5Zg",
+      "storefront_name": "M8C",
+      "repo_url": "https://github.com/zboralski/nextui-m8c-pak",
+      "categories": [
+        "Miscellaneous Tools"
+      ]
     }
   ],
   "experimental_paks": [

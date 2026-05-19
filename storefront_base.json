@@ -746,6 +746,14 @@
       "categories": [
         "Miscellaneous Tools"
       ]
+    },
+    {
+      "id": "HCRwulxl8T",
+      "storefront_name": "Fontleroy",
+      "repo_url": "https://github.com/ericreinsmidt/nextui-fontleroy",
+      "categories": [
+        "Customization"
+      ]
     }
   ],
   "experimental_paks": [

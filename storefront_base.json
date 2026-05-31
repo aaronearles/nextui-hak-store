@@ -754,6 +754,15 @@
       "categories": [
         "Customization"
       ]
+    },
+    {
+      "id": "addbpI0ckr",
+      "storefront_name": "BRIXEQ",
+      "repo_url": "https://github.com/boorch/brixeq-pak",
+      "categories": [
+        "Miscellaneous Tools",
+        "Media"
+      ]
     }
   ],
   "experimental_paks": [

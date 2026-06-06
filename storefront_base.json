@@ -763,6 +763,14 @@
         "Miscellaneous Tools",
         "Media"
       ]
+    },
+    {
+      "id": "mQztYnHwYP",
+      "storefront_name": "Shaper",
+      "repo_url": "https://github.com/icoreee/nextui-shaper-pak",
+      "categories": [
+        "Customization"
+      ]
     }
   ],
   "experimental_paks": [

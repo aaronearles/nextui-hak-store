@@ -207,7 +207,7 @@
     },
     {
       "id": "tN9cW1vL4h",
-      "storefront_name": "Moonlight",
+      "storefront_name": "Moonlight (StockOS)",
       "repo_url": "https://github.com/josegonzalez/trimui-brick-moonlight-pak",
       "categories": [
         "Streaming Game Clients"
@@ -770,6 +770,14 @@
       "repo_url": "https://github.com/icoreee/nextui-shaper-pak",
       "categories": [
         "Customization"
+      ]
+    },
+    {
+      "id": "vYsVuEoJsW",
+      "storefront_name": "Moonlight",
+      "repo_url": "https://github.com/richieszemeredi/nextui-moonlight-pak",
+      "categories": [
+        "Streaming Game Clients"
       ]
     }
   ],

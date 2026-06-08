@@ -1,0 +1,47 @@
+{
+  "name": "HakStore",
+  "url": "https://github.com/aaronearles/nextui-hak-store",
+  "paks": [
+    {
+      "id": "h4kSt0r3aE",
+      "storefront_name": "HakStore",
+      "name": "HakStore",
+      "version": "v1.0.0",
+      "type": "TOOL",
+      "description": "A personal hard fork of Pak Store for side-loading and testing my own hacky paks.",
+      "author": "Aaron Earles",
+      "repo_url": "https://github.com/aaronearles/nextui-hak-store",
+      "previous_repo_urls": null,
+      "release_filename": "HakStore.pak.zip",
+      "changelog": {
+        "v1.0.0": "Hard fork of Pak Store, rebranded as HakStore and pointed at a personal storefront."
+      },
+      "previous_names": null,
+      "scripts": {
+        "post_install": {
+          "path": "",
+          "args": null
+        },
+        "post_update": {
+          "path": "",
+          "args": null
+        },
+        "post_uninstall": {
+          "path": "",
+          "args": null
+        }
+      },
+      "update_ignore": null,
+      "screenshots": [],
+      "platforms": [
+        "tg5040",
+        "tg5050",
+        "my355"
+      ],
+      "categories": [],
+      "large_pak": false,
+      "disabled": false,
+      "experimental": false
+    }
+  ]
+}

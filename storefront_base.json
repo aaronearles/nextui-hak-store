@@ -13,6 +13,12 @@
       "storefront_name": "Netplay",
       "repo_url": "https://github.com/aaronearles/nextui-netplay",
       "categories": ["Tools"]
+    },
+    {
+      "id": "memcheat001",
+      "storefront_name": "Memory Editor",
+      "repo_url": "https://github.com/aaronearles/nextui-memcheat",
+      "categories": ["Tools"]
     }
   ],
   "experimental_paks": []

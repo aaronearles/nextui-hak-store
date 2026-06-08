@@ -45,6 +45,51 @@
       "large_pak": false,
       "disabled": false,
       "experimental": false
+    },
+    {
+      "id": "nPy4aEn3tP",
+      "storefront_name": "Netplay",
+      "name": "Netplay",
+      "version": "v1.3.4",
+      "type": "TOOL",
+      "description": "Enable/disable netplay for multiplayer gaming over WiFi.",
+      "author": "mohammadsyuhada",
+      "repo_url": "https://github.com/aaronearles/nextui-netplay",
+      "previous_repo_urls": null,
+      "release_filename": "Netplay.pak.zip",
+      "changelog": {
+        "v1.3.0": "Add NextUI v6.7.7 support",
+        "v1.3.1": "Add NextUI v6.8.0 support",
+        "v1.3.2": "Add NextUI v6.9.0 support",
+        "v1.3.3": "Add NextUI v6.9.3 support",
+        "v1.3.4": "Add NextUI v6.11.2 (tg5040) support"
+      },
+      "previous_names": null,
+      "scripts": {
+        "post_install": {
+          "path": "",
+          "args": null
+        },
+        "post_update": {
+          "path": "",
+          "args": null
+        },
+        "post_uninstall": {
+          "path": "",
+          "args": null
+        }
+      },
+      "update_ignore": null,
+      "screenshots": null,
+      "platforms": [
+        "tg5040"
+      ],
+      "categories": [
+        "Tools"
+      ],
+      "large_pak": false,
+      "disabled": false,
+      "experimental": false
     }
   ]
 }

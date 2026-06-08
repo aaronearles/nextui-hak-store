@@ -7,6 +7,12 @@
       "storefront_name": "HakStore",
       "repo_url": "https://github.com/aaronearles/nextui-hak-store",
       "categories": ["Tools"]
+    },
+    {
+      "id": "nPy4aEn3tP",
+      "storefront_name": "Netplay",
+      "repo_url": "https://github.com/aaronearles/nextui-netplay",
+      "categories": ["Tools"]
     }
   ],
   "experimental_paks": []

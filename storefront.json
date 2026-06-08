@@ -6,7 +6,7 @@
       "id": "h4kSt0r3aE",
       "storefront_name": "HakStore",
       "name": "HakStore",
-      "version": "v1.0.0",
+      "version": "v1.0.1",
       "type": "TOOL",
       "description": "A personal hard fork of Pak Store for side-loading and testing my own hacky paks.",
       "author": "Aaron Earles",
@@ -14,7 +14,8 @@
       "previous_repo_urls": null,
       "release_filename": "HakStore.pak.zip",
       "changelog": {
-        "v1.0.0": "Hard fork of Pak Store, rebranded as HakStore and pointed at a personal storefront."
+        "v1.0.0": "Hard fork of Pak Store, rebranded as HakStore and pointed at a personal storefront.",
+        "v1.0.1": "Test release to verify the in-app update pipeline."
       },
       "previous_names": null,
       "scripts": {

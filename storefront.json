@@ -38,7 +38,9 @@
         "tg5050",
         "my355"
       ],
-      "categories": [],
+      "categories": [
+        "Tools"
+      ],
       "large_pak": false,
       "disabled": false,
       "experimental": false

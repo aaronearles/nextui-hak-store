@@ -9,15 +9,13 @@ on:
       - storefront_base.json
       - pak.json
       - app/storefront_builder.go
-  schedule:
-    - cron: "0 * * * *"
 
 permissions:
   contents: write
 
 jobs:
 
-  stock-shelves:
+  build-storefront:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
@@ -34,14 +32,15 @@ jobs:
           GOWORK: off
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - name: Create deployment directory
+      - name: Commit storefront.json to main
         run: |
-          mkdir -p deploy
-          cp storefront.json deploy/
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: deploy
-          branch: gh-pages
-          token: ${{ secrets.GITHUB_TOKEN }}
+          if git diff --quiet storefront.json; then
+            echo "No changes to commit"
+          else
+            git add storefront.json
+            git commit -m "Rebuild storefront.json"
+            git push
+          fi

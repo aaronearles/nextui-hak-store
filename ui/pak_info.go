@@ -14,9 +14,9 @@ import (
 
 	gaba "github.com/BrandonKowalski/gabagool/v2/pkg/gabagool"
 	"github.com/BrandonKowalski/gabagool/v2/pkg/gabagool/constants"
-	"github.com/LoveRetro/nextui-pak-store/database"
-	"github.com/LoveRetro/nextui-pak-store/models"
-	"github.com/LoveRetro/nextui-pak-store/utils"
+	"github.com/aaronearles/nextui-hak-store/database"
+	"github.com/aaronearles/nextui-hak-store/models"
+	"github.com/aaronearles/nextui-hak-store/utils"
 )
 
 type PakInfoInput struct {
@@ -302,8 +302,8 @@ func (s *PakInfoScreen) drawSingle(input PakInfoInput) (ScreenResult[PakInfoOutp
 		action = "Updated"
 	}
 
-	if pak.Name == "Pak Store" {
-		return withAction(output, ActionPakStoreUpdated), nil
+	if pak.Name == "HakStore" {
+		return withAction(output, ActionHakStoreUpdated), nil
 	}
 
 	gaba.ProcessMessage(fmt.Sprintf("%s %s!", pak.StorefrontName, action), gaba.ProcessMessageOptions{}, func() (interface{}, error) {
@@ -420,13 +420,13 @@ func (s *PakInfoScreen) drawMultiple(input PakInfoInput) (ScreenResult[PakInfoOu
 				"pak", pak.Name)
 		}
 
-		if pak.Name == "Pak Store" {
-			gaba.ProcessMessage("Pak Store Updated! Restarting...",
+		if pak.Name == "HakStore" {
+			gaba.ProcessMessage("HakStore Updated! Restarting...",
 				gaba.ProcessMessageOptions{ShowThemeBackground: true}, func() (interface{}, error) {
 					time.Sleep(2 * time.Second)
 					return nil, nil
 				})
-			return withAction(output, ActionPakStoreUpdated), nil
+			return withAction(output, ActionHakStoreUpdated), nil
 		}
 	}
 

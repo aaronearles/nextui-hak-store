@@ -17,7 +17,7 @@ import (
 	"time"
 
 	"github.com/BrandonKowalski/gabagool/v2/pkg/gabagool"
-	"github.com/LoveRetro/nextui-pak-store/models"
+	"github.com/aaronearles/nextui-hak-store/models"
 	"github.com/skip2/go-qrcode"
 )
 
@@ -46,7 +46,7 @@ func GetSDRoot() string {
 
 func GetUserDataDir() string {
 	platform := GetPlatform()
-	return filepath.Join(GetSDRoot(), models.UserdataDir, platform, models.PakStoreUserDataDir)
+	return filepath.Join(GetSDRoot(), models.UserdataDir, platform, models.HakStoreUserDataDir)
 }
 
 func GetLogsDir() string {

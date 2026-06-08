@@ -9,10 +9,10 @@ import (
 	"strings"
 
 	"github.com/BrandonKowalski/gabagool/v2/pkg/gabagool"
-	"github.com/LoveRetro/nextui-pak-store/database"
-	"github.com/LoveRetro/nextui-pak-store/internal"
-	"github.com/LoveRetro/nextui-pak-store/models"
-	"github.com/LoveRetro/nextui-pak-store/utils"
+	"github.com/aaronearles/nextui-hak-store/database"
+	"github.com/aaronearles/nextui-hak-store/internal"
+	"github.com/aaronearles/nextui-hak-store/models"
+	"github.com/aaronearles/nextui-hak-store/utils"
 )
 
 func GetInstalledPaks() (map[string]database.InstalledPak, error) {

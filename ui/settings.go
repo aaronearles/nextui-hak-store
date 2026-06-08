@@ -4,7 +4,7 @@ import (
 	"errors"
 
 	gaba "github.com/BrandonKowalski/gabagool/v2/pkg/gabagool"
-	"github.com/LoveRetro/nextui-pak-store/internal"
+	"github.com/aaronearles/nextui-hak-store/internal"
 )
 
 type SettingsInput struct {

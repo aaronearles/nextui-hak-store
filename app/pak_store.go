@@ -9,10 +9,10 @@ import (
 	_ "github.com/BrandonKowalski/certifiable"
 	gaba "github.com/BrandonKowalski/gabagool/v2/pkg/gabagool"
 	"github.com/BrandonKowalski/gabagool/v2/pkg/gabagool/constants"
-	"github.com/LoveRetro/nextui-pak-store/database"
-	"github.com/LoveRetro/nextui-pak-store/models"
-	"github.com/LoveRetro/nextui-pak-store/state"
-	"github.com/LoveRetro/nextui-pak-store/utils"
+	"github.com/aaronearles/nextui-hak-store/database"
+	"github.com/aaronearles/nextui-hak-store/models"
+	"github.com/aaronearles/nextui-hak-store/state"
+	"github.com/aaronearles/nextui-hak-store/utils"
 	_ "modernc.org/sqlite"
 )
 
@@ -20,9 +20,9 @@ var storefront models.Storefront
 var experimentalUnlocked bool
 
 func init() {
-	logPath := filepath.Join(utils.GetLogsDir(), "pak_store.log")
+	logPath := filepath.Join(utils.GetLogsDir(), "hak_store.log")
 	gaba.Init(gaba.Options{
-		WindowTitle:    "Pak Store",
+		WindowTitle:    "HakStore",
 		ShowBackground: true,
 		LogPath:        logPath,
 		IsNextUI:       true,
@@ -96,7 +96,7 @@ func main() {
 
 	logger := gaba.GetLogger()
 
-	logger.Info("Starting Pak Store")
+	logger.Info("Starting HakStore")
 
 	if err := runApp(storefront); err != nil {
 		logger.Error("Router error", "error", err)

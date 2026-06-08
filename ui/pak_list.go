@@ -7,8 +7,8 @@ import (
 
 	gaba "github.com/BrandonKowalski/gabagool/v2/pkg/gabagool"
 	"github.com/BrandonKowalski/gabagool/v2/pkg/gabagool/constants"
-	"github.com/LoveRetro/nextui-pak-store/models"
-	"github.com/LoveRetro/nextui-pak-store/state"
+	"github.com/aaronearles/nextui-hak-store/models"
+	"github.com/aaronearles/nextui-hak-store/state"
 )
 
 type PakListInput struct {

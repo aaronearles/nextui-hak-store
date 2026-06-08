@@ -6,8 +6,8 @@ import (
 
 	gaba "github.com/BrandonKowalski/gabagool/v2/pkg/gabagool"
 	"github.com/BrandonKowalski/gabagool/v2/pkg/gabagool/constants"
-	"github.com/LoveRetro/nextui-pak-store/models"
-	"github.com/LoveRetro/nextui-pak-store/state"
+	"github.com/aaronearles/nextui-hak-store/models"
+	"github.com/aaronearles/nextui-hak-store/state"
 )
 
 type MainMenuInput struct {
@@ -36,7 +36,7 @@ func (s *MainMenuScreen) Draw(input MainMenuInput) (ScreenResult[MainMenuOutput]
 	browsePaks := state.GetBrowsePaks(input.Storefront, installedPaks, input.ExperimentalMode)
 	updatesAvailable := state.GetUpdatesAvailable(input.Storefront, input.ExperimentalMode)
 
-	title := "Pak Store"
+	title := "HakStore"
 
 	var menuItems []gaba.MenuItem
 

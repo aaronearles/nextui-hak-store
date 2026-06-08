@@ -1,9 +1,9 @@
 package models
 
 const (
-	PakStoreID        = "xK9mR2vL4w"
-	PakStoreRepo      = "https://github.com/LoveRetro/nextui-pak-store"
-	StorefrontJsonURL = "https://raw.githubusercontent.com/LoveRetro/nextui-pak-store/refs/heads/gh-pages/storefront.json"
+	HakStoreID        = "h4kSt0r3aE"
+	HakStoreRepo      = "https://github.com/aaronearles/nextui-hak-store"
+	StorefrontJsonURL = "https://raw.githubusercontent.com/aaronearles/nextui-hak-store/refs/heads/main/storefront.json"
 	GitHubRoot        = "https://github.com/"
 	RawGHUC           = "https://raw.githubusercontent.com/"
 	RefMainStub       = "/refs/heads/main/"
@@ -11,7 +11,7 @@ const (
 
 	SDRoot              = "/mnt/SDCARD"
 	UserdataDir         = ".userdata"
-	PakStoreUserDataDir = "nextui-pak-store"
+	HakStoreUserDataDir = "hak-store"
 	ToolDir             = "Tools"
 	EmulatorDir         = "Emus"
 )

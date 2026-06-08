@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 
 	gaba "github.com/BrandonKowalski/gabagool/v2/pkg/gabagool"
-	"github.com/LoveRetro/nextui-pak-store/utils"
+	"github.com/aaronearles/nextui-hak-store/utils"
 )
 
 type PlatformFilterMode string

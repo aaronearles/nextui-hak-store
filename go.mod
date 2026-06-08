@@ -1,4 +1,4 @@
-module github.com/LoveRetro/nextui-pak-store
+module github.com/aaronearles/nextui-hak-store
 
 go 1.25.0
 

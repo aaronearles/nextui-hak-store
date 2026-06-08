@@ -74,8 +74,8 @@ jobs:
 
       - name: Create zip distribution
         run: |
-          cd "build/Pak Store.pak"
-          zip -r ../Pak.Store.pak.zip .
+          cd "build/HakStore.pak"
+          zip -r ../HakStore.pak.zip .
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -89,7 +89,7 @@ jobs:
 
             ${{ inputs.beta && format('Built from branch: `{0}`', github.ref_name) || '' }}
           files: |
-            build/Pak.Store.pak.zip
-            build/Pak.Store.pakz
+            build/HakStore.pak.zip
+            build/HakStore.pakz
           draft: false
           prerelease: ${{ inputs.beta }}

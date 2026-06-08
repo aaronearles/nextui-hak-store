@@ -23,33 +23,33 @@ tasks:
       - mkdir -p build/lib
       - mkdir -p build/bin
       - mkdir -p build/licenses
-      - docker buildx build --platform=linux/arm64 --load -t retro-console-arm64 -f Dockerfile --build-arg VERSION={{.VERSION}} --build-arg GIT_COMMIT={{.GIT_COMMIT}} --build-arg BUILD_DATE={{.BUILD_DATE}} .
+      - docker buildx build --platform=linux/arm64 --load -t hak-store-arm64 -f Dockerfile --build-arg VERSION={{.VERSION}} --build-arg GIT_COMMIT={{.GIT_COMMIT}} --build-arg BUILD_DATE={{.BUILD_DATE}} .
     silent: true
 
   package:
     cmds:
-      - docker create --name extract retro-console-arm64 || true
-      - docker cp extract:/build/pak-store build/pak-store
+      - docker create --name extract hak-store-arm64 || true
+      - docker cp extract:/build/hak-store build/hak-store
       - docker cp extract:/usr/lib/aarch64-linux-gnu/libSDL2_gfx-1.0.so.0.0.2 build/lib/libSDL2_gfx-1.0.so.0
-      - rm -rf "build/Pak Store.pak" || true
-      - mkdir -p "build/Pak Store.pak"
-      - mkdir -p "build/Pak Store.pak/resources/lib"
-      - cp build/pak-store launch.sh README.md LICENSE pak.json "build/Pak Store.pak"
-      - cp resources/splash.png resources/jankstore.png "build/Pak Store.pak/resources"
-      - cp -R build/lib "build/Pak Store.pak/resources"
+      - rm -rf "build/HakStore.pak" || true
+      - mkdir -p "build/HakStore.pak"
+      - mkdir -p "build/HakStore.pak/resources/lib"
+      - cp build/hak-store launch.sh README.md LICENSE pak.json "build/HakStore.pak"
+      - cp resources/splash.png resources/jankstore.png "build/HakStore.pak/resources"
+      - cp -R build/lib "build/HakStore.pak/resources"
       - rm -rf "build/Tools" || true
       - mkdir -p "build/Tools/tg5040"
       - mkdir -p "build/Tools/tg5050"
       - mkdir -p "build/Tools/my355"
-      - cp -R "build/Pak Store.pak" "build/Tools/tg5040"
-      - cp -R "build/Pak Store.pak" "build/Tools/tg5050"
-      - cp -R "build/Pak Store.pak" "build/Tools/my355"
+      - cp -R "build/HakStore.pak" "build/Tools/tg5040"
+      - cp -R "build/HakStore.pak" "build/Tools/tg5050"
+      - cp -R "build/HakStore.pak" "build/Tools/my355"
     silent: true
 
   package-pakz:
     dir: build/
     cmds:
-      - zip -r "Pak.Store.pakz" "Tools/"
+      - zip -r "HakStore.pakz" "Tools/"
 
   cleanup:
     cmds:
@@ -58,20 +58,20 @@ tasks:
 
   adb:
     cmds:
-      - adb shell rm -rf "/mnt/SDCARD/Tools/tg5040/Pak Store.pak" || true
-      - adb push "build/Pak Store.pak" "/mnt/SDCARD/Tools/tg5040"
-      - say Finished deploying Pak Store!
+      - adb shell rm -rf "/mnt/SDCARD/Tools/tg5040/HakStore.pak" || true
+      - adb push "build/HakStore.pak" "/mnt/SDCARD/Tools/tg5040"
+      - say Finished deploying HakStore!
     silent: true
 
   kill:
     cmds:
       - sshpass -p 'tina' ssh root@192.168.1.210 "kill  \$(pidof dlv)" > /dev/null 2>&1 || true
-      - sshpass -p 'tina' ssh root@192.168.1.210 "kill  \$(pidof pak-store)" > /dev/null 2>&1 || true
+      - sshpass -p 'tina' ssh root@192.168.1.210 "kill  \$(pidof hak-store)" > /dev/null 2>&1 || true
     silent: true
 
   debug:
     cmds:
-      - sshpass -p 'tina' ssh root@192.168.1.210 "sh -c '/mnt/SDCARD/Developer/bin/dlv attach --headless --listen=:2345 --api-version=2 --accept-multiclient \$(pidof pak-store)'" > /dev/null &
+      - sshpass -p 'tina' ssh root@192.168.1.210 "sh -c '/mnt/SDCARD/Developer/bin/dlv attach --headless --listen=:2345 --api-version=2 --accept-multiclient \$(pidof hak-store)'" > /dev/null &
       - printf "Press any key to quit debugging...\n"
       - read
       - task: kill
@@ -79,10 +79,10 @@ tasks:
 
   pull-db:
     cmds:
-      - adb pull /mnt/SDCARD/.userdata/tg5040/nextui-pak-store/pak-store.db device-pak-store.db
+      - adb pull /mnt/SDCARD/.userdata/tg5040/hak-store/hak-store.db device-hak-store.db
     silent: true
 
   push-db:
     cmds:
-      - adb push device-pak-store.db /mnt/SDCARD/.userdata/tg5040/nextui-pak-store/pak-store.db
+      - adb push device-hak-store.db /mnt/SDCARD/.userdata/tg5040/hak-store/hak-store.db
     silent: true

@@ -4,4 +4,4 @@ cd "$PAK_DIR" || exit 1
 
 export LD_LIBRARY_PATH=$PAK_DIR/resources/lib:$LD_LIBRARY_PATH
 
-./pak-store
+./hak-store

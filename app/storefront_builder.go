@@ -11,7 +11,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/LoveRetro/nextui-pak-store/models"
+	"github.com/aaronearles/nextui-hak-store/models"
 )
 
 type GitHubContent struct {
@@ -53,7 +53,7 @@ func logFatal(msg string) {
 }
 
 func main() {
-	fmt.Printf("%s%sNextUI Pak Store - Storefront Builder%s\n", colorBold, colorCyan, colorReset)
+	fmt.Printf("%s%sHakStore - Storefront Builder%s\n", colorBold, colorCyan, colorReset)
 
 	logHeader("Loading storefront_base.json")
 	data, err := os.ReadFile("storefront_base.json")

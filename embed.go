@@ -1,4 +1,4 @@
-package nextui_pak_store
+package nextui_hakstore
 
 import _ "embed"
 

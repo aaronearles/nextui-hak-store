@@ -11,9 +11,9 @@ import (
 	"path/filepath"
 
 	"github.com/BrandonKowalski/gabagool/v2/pkg/gabagool"
-	pakstore "github.com/LoveRetro/nextui-pak-store"
-	"github.com/LoveRetro/nextui-pak-store/models"
-	"github.com/LoveRetro/nextui-pak-store/utils"
+	hakstore "github.com/aaronearles/nextui-hak-store"
+	"github.com/aaronearles/nextui-hak-store/models"
+	"github.com/aaronearles/nextui-hak-store/utils"
 	_ "modernc.org/sqlite"
 )
 
@@ -25,10 +25,10 @@ func Init() {
 	ctx := context.Background()
 
 	var err error
-	dbPath := filepath.Join(utils.GetUserDataDir(), "pak-store.db")
+	dbPath := filepath.Join(utils.GetUserDataDir(), "hak-store.db")
 
 	if os.Getenv("ENVIRONMENT") == "DEV" {
-		dbPath = "pak-store.db"
+		dbPath = "hak-store.db"
 	}
 
 	logger.Debug("Database path resolved", "path", dbPath)
@@ -51,7 +51,7 @@ func Init() {
 	schemaExists, err := tableExists(dbc, "installed_paks")
 	if !schemaExists {
 		logger.Debug("Initializing database schema")
-		if _, err := dbc.ExecContext(ctx, pakstore.DDL); err != nil {
+		if _, err := dbc.ExecContext(ctx, hakstore.DDL); err != nil {
 			logger.Error("Unable to init schema", "error", err)
 			os.Exit(1)
 		}
@@ -68,39 +68,39 @@ func Init() {
 		log.Fatalf("Error parsing JSON file: %v", err)
 	}
 
-	existingPakStore, err := queries.GetInstalledByPakID(ctx, sql.NullString{String: models.PakStoreID, Valid: true})
+	existingPakStore, err := queries.GetInstalledByPakID(ctx, sql.NullString{String: models.HakStoreID, Valid: true})
 	if errors.Is(err, sql.ErrNoRows) {
 		queries.SyncPakStoreByName(ctx, SyncPakStoreByNameParams{
 			DisplayName: pak.Name,
 			Name:        pak.Name,
 			Version:     pak.Version,
-			RepoUrl:     sql.NullString{String: models.PakStoreRepo, Valid: true},
-			PakID:       sql.NullString{String: models.PakStoreID, Valid: true},
-			OldName:     "Pak Store",
+			RepoUrl:     sql.NullString{String: models.HakStoreRepo, Valid: true},
+			PakID:       sql.NullString{String: models.HakStoreID, Valid: true},
+			OldName:     "HakStore",
 		})
 
-		_, err = queries.GetInstalledByPakID(ctx, sql.NullString{String: models.PakStoreID, Valid: true})
+		_, err = queries.GetInstalledByPakID(ctx, sql.NullString{String: models.HakStoreID, Valid: true})
 		if errors.Is(err, sql.ErrNoRows) {
 			queries.Install(ctx, InstallParams{
 				DisplayName:  pak.Name,
 				Name:         pak.Name,
-				PakID:        sql.NullString{String: models.PakStoreID, Valid: true},
-				RepoUrl:      sql.NullString{String: models.PakStoreRepo, Valid: true},
+				PakID:        sql.NullString{String: models.HakStoreID, Valid: true},
+				RepoUrl:      sql.NullString{String: models.HakStoreRepo, Valid: true},
 				Version:      pak.Version,
 				Type:         "TOOL",
 				CanUninstall: 0,
 			})
 		}
 	} else if err != nil {
-		logger.Error("Unable to check for Pak Store record", "error", err)
+		logger.Error("Unable to check for HakStore record", "error", err)
 		os.Exit(1)
 	} else if existingPakStore.Version != pak.Version {
 		queries.SyncPakStore(ctx, SyncPakStoreParams{
 			DisplayName: pak.Name,
 			Name:        pak.Name,
 			Version:     pak.Version,
-			RepoUrl:     sql.NullString{String: models.PakStoreRepo, Valid: true},
-			PakID:       sql.NullString{String: models.PakStoreID, Valid: true},
+			RepoUrl:     sql.NullString{String: models.HakStoreRepo, Valid: true},
+			PakID:       sql.NullString{String: models.HakStoreID, Valid: true},
 		})
 	}
 }

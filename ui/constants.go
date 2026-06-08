@@ -15,7 +15,7 @@ const (
 	ActionSettings
 	ActionInfo
 
-	ActionPakStoreUpdated
+	ActionHakStoreUpdated
 	ActionUninstalled
 	ActionPartialUpdate
 	ActionCancelled

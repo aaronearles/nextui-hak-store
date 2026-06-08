@@ -5,9 +5,9 @@ import (
 
 	gaba "github.com/BrandonKowalski/gabagool/v2/pkg/gabagool"
 	"github.com/BrandonKowalski/gabagool/v2/pkg/gabagool/constants"
-	"github.com/LoveRetro/nextui-pak-store/models"
-	"github.com/LoveRetro/nextui-pak-store/utils"
-	"github.com/LoveRetro/nextui-pak-store/version"
+	"github.com/aaronearles/nextui-hak-store/models"
+	"github.com/aaronearles/nextui-hak-store/utils"
+	"github.com/aaronearles/nextui-hak-store/version"
 )
 
 type InfoInput struct{}
@@ -54,18 +54,15 @@ func (s *InfoScreen) buildSections() []gaba.Section {
 		{Label: "Commit", Value: buildInfo.GitCommit},
 		{Label: "Build Date", Value: buildInfo.BuildDate},
 	}
-	sections = append(sections, gaba.NewInfoSection("Pak Store", buildMetadata))
+	sections = append(sections, gaba.NewInfoSection("HakStore", buildMetadata))
 
 	sections = append(sections, gaba.NewDescriptionSection(
-		"Community Shout Out",
-		"Pak Store exists because of the incredible NextUI community. "+
-			"Your creativity, passion, and dedication to building amazing paks "+
-			"is what makes this platform special. Every emulator, tool, and enhancement "+
-			"you create brings joy to our retro doo-dads! "+
-			"Thank you for sharing your talents and making NextUI better for everyone.",
+		"About",
+		"HakStore is a personal hard fork of Pak Store, pointed at a "+
+			"self-hosted catalog for side-loading and testing personal pak projects.",
 	))
 
-	qrcode, err := utils.CreateTempQRCode(models.PakStoreRepo, 256)
+	qrcode, err := utils.CreateTempQRCode(models.HakStoreRepo, 256)
 	if err == nil {
 		sections = append(sections, gaba.NewImageSection(
 			"GitHub Repository",

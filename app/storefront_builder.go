@@ -150,7 +150,9 @@ func fetchPakJsonFromGitHubAPI(apiURL string) (models.Pak, error) {
 
 	req.Header.Add("Accept", "application/vnd.github.v3+json")
 
-	req.Header.Add("Authorization", "Bearer "+os.Getenv("GH_TOKEN"))
+	if token := os.Getenv("GH_TOKEN"); token != "" {
+		req.Header.Add("Authorization", "Bearer "+token)
+	}
 
 	client := &http.Client{}
 	resp, err := client.Do(req)

@@ -19,6 +19,12 @@
       "storefront_name": "Memory Editor",
       "repo_url": "https://github.com/aaronearles/nextui-memcheat",
       "categories": ["Tools"]
+    },
+    {
+      "id": "wgVpnAE001",
+      "storefront_name": "WireGuard",
+      "repo_url": "https://github.com/aaronearles/nextui-wireguard",
+      "categories": ["Tools"]
     }
   ],
   "experimental_paks": []
